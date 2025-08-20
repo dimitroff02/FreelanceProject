@@ -569,4 +569,209 @@ backToTopButton.addEventListener('mouseleave', () => {
     backToTopButton.style.boxShadow = '0 5px 15px rgba(0, 123, 255, 0.3)';
 });
 
+// Language translations
+const translations = {
+    bg: {
+        // Navigation
+        'nav-home': 'Начало',
+        'nav-about': 'За нас',
+        'nav-services': 'Услуги',
+        'nav-prices': 'Запитване за цена',
+        'nav-contact': 'Контакти',
+        
+        // Hero Section
+        'hero-title': 'Луксозни трансфери от летище',
+        'hero-subtitle': 'Пътувайте в стил и комфорт с нашите нови премиум автомобили',
+        'hero-description': 'Превозваме от София / Пловдив до всяка точка в България + близките страни(Румъния, Гърция, Турция)',
+        'btn-price-inquiry': 'Запитване за цена',
+        'btn-reserve': 'Резервирай',
+        
+        // About Section
+        'about-title': 'За нас',
+        'about-subtitle': 'Вашият надежден партньор за луксозни трансфери',
+        'about-description': 'Специализираме се в предоставянето на премиум трансфер услуги от летище София и летище Пловдив. Нашата флотилия включва най-новите луксозни автомобили, за да гарантираме максимален комфорт и стил при всяко пътуване.',
+        'feature-cars-title': 'Луксозни автомобили',
+        'feature-cars-desc': 'от 2024 година',
+        'feature-24h-title': '24/7 на разположение',
+        'feature-24h-desc': 'Готови сме да ви обслужим по всяко време',
+        'feature-safety-title': 'Безопасност',
+        'feature-safety-desc': 'Лицензирани шофьори с богат опит',
+        
+        // Services Section
+        'services-title': 'Нашите услуги',
+        'service-sofia-title': 'Трансфер от летище София',
+        'service-sofia-desc': 'Бърз и комфортен трансфер от летище София до всяка точка в града или страната',
+        'service-plovdiv-title': 'Трансфер от летище Пловдив',
+        'service-plovdiv-desc': 'Луксозен трансфер от летище Пловдив с професионални шофьори',
+        'service-intercity-title': 'Междуградски трансфери',
+        'service-intercity-desc': 'Комфортни пътувания между градовете в България и близките страни(Румъния, Гърция, Турция)',
+        'service-feature-luggage': 'Помощ с багажа',
+        'service-feature-comfort': 'Максимален комфорт',
+        'service-feature-distance': 'Дълги разстояния',
+        'service-feature-rest': 'Спиране за почивка',
+        
+        // Price Inquiry Section
+        'prices-title': 'Запитване за цена',
+        'prices-subtitle': 'Получете персонализирана оферта',
+        'prices-description': 'Всяко пътуване е уникално и заслужава перфектна цена. Свържете се с нас за персонализирана оферта според вашите нужди.',
+        'feature-calc-title': 'Точно изчисление',
+        'feature-calc-desc': 'Цена според разстоянието и броя пътници',
+        'feature-fast-title': 'Бърз отговор',
+        'feature-fast-desc': 'Получете оферта в рамките на 15 минути',
+        'feature-discount-title': 'Специални отстъпки',
+        'feature-discount-desc': 'За редовни клиенти и групови резервации',
+        'call-title': 'Обадете се сега',
+        'call-description': 'Получете незабавна оферта за вашия трансфер',
+        'btn-call': 'Обадете се',
+        'call-note': 'Безплатна консултация и оферта',
+        
+        // Footer
+        'footer-about': 'Вашият надежден партньор за луксозни трансфери от летище София и Пловдив.',
+        'footer-contacts': 'Контакти',
+        'footer-services': 'Услуги',
+        'service-sofia-footer': 'Трансфер от летище София',
+        'service-plovdiv-footer': 'Трансфер от летище Пловдив',
+        'service-intercity-footer': 'Междуградски трансфери',
+        'service-international-footer': 'Международни трансфери',
+        'footer-copyright': '© 2025 Luxury Transfer. Всички права запазени.'
+    },
+    en: {
+        // Navigation
+        'nav-home': 'Home',
+        'nav-about': 'About',
+        'nav-services': 'Services',
+        'nav-prices': 'Price Inquiry',
+        'nav-contact': 'Contact',
+        
+        // Hero Section
+        'hero-title': 'Luxury Airport Transfers',
+        'hero-subtitle': 'Travel in style and comfort with our new premium vehicles',
+        'hero-description': 'We transport from Sofia / Plovdiv to any point in Bulgaria + neighboring countries (Romania, Greece, Turkey)',
+        'btn-price-inquiry': 'Price Inquiry',
+        'btn-reserve': 'Reserve',
+        
+        // About Section
+        'about-title': 'About Us',
+        'about-subtitle': 'Your reliable partner for luxury transfers',
+        'about-description': 'We specialize in providing premium transfer services from Sofia Airport and Plovdiv Airport. Our fleet includes the latest luxury vehicles to ensure maximum comfort and style for every journey.',
+        'feature-cars-title': 'Luxury Vehicles',
+        'feature-cars-desc': 'from 2024',
+        'feature-24h-title': '24/7 Available',
+        'feature-24h-desc': 'We are ready to serve you at any time',
+        'feature-safety-title': 'Safety',
+        'feature-safety-desc': 'Licensed drivers with rich experience',
+        
+        // Services Section
+        'services-title': 'Our Services',
+        'service-sofia-title': 'Sofia Airport Transfer',
+        'service-sofia-desc': 'Fast and comfortable transfer from Sofia Airport to any point in the city or country',
+        'service-plovdiv-title': 'Plovdiv Airport Transfer',
+        'service-plovdiv-desc': 'Luxury transfer from Plovdiv Airport with professional drivers',
+        'service-intercity-title': 'Intercity Transfers',
+        'service-intercity-desc': 'Comfortable journeys between cities in Bulgaria and neighboring countries (Romania, Greece, Turkey)',
+        'service-feature-luggage': 'Luggage assistance',
+        'service-feature-comfort': 'Maximum comfort',
+        'service-feature-distance': 'Long distances',
+        'service-feature-rest': 'Rest stops',
+        
+        // Price Inquiry Section
+        'prices-title': 'Price Inquiry',
+        'prices-subtitle': 'Get a personalized quote',
+        'prices-description': 'Every journey is unique and deserves a perfect price. Contact us for a personalized quote according to your needs.',
+        'feature-calc-title': 'Accurate calculation',
+        'feature-calc-desc': 'Price based on distance and number of passengers',
+        'feature-fast-title': 'Fast response',
+        'feature-fast-desc': 'Get a quote within 15 minutes',
+        'feature-discount-title': 'Special discounts',
+        'feature-discount-desc': 'For regular customers and group reservations',
+        'call-title': 'Call Now',
+        'call-description': 'Get an immediate quote for your transfer',
+        'btn-call': 'Call Now',
+        'call-note': 'Free consultation and quote',
+        
+        // Footer
+        'footer-about': 'Your reliable partner for luxury transfers from Sofia and Plovdiv airports.',
+        'footer-contacts': 'Contacts',
+        'footer-services': 'Services',
+        'service-sofia-footer': 'Sofia Airport Transfer',
+        'service-plovdiv-footer': 'Plovdiv Airport Transfer',
+        'service-intercity-footer': 'Intercity Transfers',
+        'service-international-footer': 'International Transfers',
+        'footer-copyright': '© 2025 Luxury Transfer. All rights reserved.'
+    }
+};
+
+// Language Selector Functionality
+const languageBtns = document.querySelectorAll('.language-btn');
+const languageDropdowns = document.querySelectorAll('.language-dropdown');
+const languageMenus = document.querySelectorAll('.language-menu');
+const currentLangElements = document.querySelectorAll('.current-lang');
+
+// Toggle language dropdown
+languageBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdown = btn.closest('.language-dropdown');
+        dropdown.classList.toggle('active');
+    });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    languageDropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+});
+
+// Language selection
+const languageLinks = document.querySelectorAll('.language-menu a');
+languageLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedLang = link.getAttribute('data-lang');
+        
+        // Update active state
+        languageLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        
+        // Update current language display
+        currentLangElements.forEach(el => {
+            el.textContent = selectedLang.toUpperCase();
+        });
+        
+        // Close dropdowns
+        languageDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+        
+        // Change language
+        changeLanguage(selectedLang);
+        
+        // Show notification
+        const notificationText = selectedLang === 'bg' ? 'Езикът е променен на български' : 'Language changed to English';
+        showNotification(notificationText, 'success');
+    });
+});
+
+// Function to change language
+function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // Update page title
+    const title = lang === 'bg' ? 'Luxury Transfer - Луксозни трансфери от летище София и Пловдив' : 'Luxury Transfer - Luxury Transfers from Sofia and Plovdiv Airports';
+    document.title = title;
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+}
+
 console.log('Luxury Transfer website loaded successfully!');
+

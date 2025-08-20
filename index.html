@@ -17,12 +17,38 @@
                     <h2>Luxury Transfer</h2>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#home">Начало</a></li>
-                    <li><a href="#about">За нас</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#prices">Запитване за цена</a></li>
-                    <li><a href="contact.html">Контакти</a></li>
+                    <li><a href="#home" data-translate="nav-home">Начало</a></li>
+                    <li><a href="#about" data-translate="nav-about">За нас</a></li>
+                    <li><a href="#services" data-translate="nav-services">Услуги</a></li>
+                    <li><a href="#prices" data-translate="nav-prices">Запитване за цена</a></li>
+                    <li><a href="contact.html" data-translate="nav-contact">Контакти</a></li>
+                    <li class="language-selector">
+                        <div class="language-dropdown">
+                            <button class="language-btn">
+                                <i class="fas fa-globe"></i>
+                                <span class="current-lang">BG</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="language-menu">
+                                <li><a href="#" data-lang="bg" class="active">Български</a></li>
+                                <li><a href="#" data-lang="en">English</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
+                <div class="mobile-language-selector">
+                    <div class="language-dropdown">
+                        <button class="language-btn">
+                            <i class="fas fa-globe"></i>
+                            <span class="current-lang">BG</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-menu">
+                            <li><a href="#" data-lang="bg" class="active">Български</a></li>
+                            <li><a href="#" data-lang="en">English</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -35,12 +61,12 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Луксозни трансфери от летище</h1>
-            <p>Пътувайте в стил и комфорт с нашите нови премиум автомобили</p>
-            <p>Превозваме от София / Пловдив до всяка точка в България + близките страни(Румъния, Гърция, Турция)</p>
+            <h1 data-translate="hero-title">Луксозни трансфери от летище</h1>
+            <p data-translate="hero-subtitle">Пътувайте в стил и комфорт с нашите нови премиум автомобили</p>
+            <p data-translate="hero-description">Превозваме от София / Пловдив до всяка точка в България + близките страни(Румъния, Гърция, Турция)</p>
             <div class="hero-buttons">
-                <a href="#prices" class="btn btn-primary">Запитване за цена</a>
-                <a href="contact.html" class="btn btn-secondary">Резервирай</a>
+                <a href="#prices" class="btn btn-primary" data-translate="btn-price-inquiry">Запитване за цена</a>
+                <a href="contact.html" class="btn btn-secondary" data-translate="btn-reserve">Резервирай</a>
             </div>
         </div>
         <div class="hero-image">
@@ -61,26 +87,26 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>За нас</h2>
+            <h2 data-translate="about-title">За нас</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Вашият надежден партньор за луксозни трансфери</h3>
-                    <p>Специализираме се в предоставянето на премиум трансфер услуги от летище София и летище Пловдив. Нашата флотилия включва най-новите луксозни автомобили, за да гарантираме максимален комфорт и стил при всяко пътуване.</p>
+                    <h3 data-translate="about-subtitle">Вашият надежден партньор за луксозни трансфери</h3>
+                    <p data-translate="about-description">Специализираме се в предоставянето на премиум трансфер услуги от летище София и летище Пловдив. Нашата флотилия включва най-новите луксозни автомобили, за да гарантираме максимален комфорт и стил при всяко пътуване.</p>
                     <div class="features">
                         <div class="feature">
                             <i class="fas fa-car"></i>
-                            <h4>Луксозни автомобили</h4>
-                            <p>от 2024 година</p>
+                            <h4 data-translate="feature-cars-title">Луксозни автомобили</h4>
+                            <p data-translate="feature-cars-desc">от 2024 година</p>
                         </div>
                         <div class="feature">
                             <i class="fas fa-clock"></i>
-                            <h4>24/7 на разположение</h4>
-                            <p>Готови сме да ви обслужим по всяко време</p>
+                            <h4 data-translate="feature-24h-title">24/7 на разположение</h4>
+                            <p data-translate="feature-24h-desc">Готови сме да ви обслужим по всяко време</p>
                         </div>
                         <div class="feature">
                             <i class="fas fa-shield-alt"></i>
-                            <h4>Безопасност</h4>
-                            <p>Лицензирани шофьори с богат опит</p>
+                            <h4 data-translate="feature-safety-title">Безопасност</h4>
+                            <p data-translate="feature-safety-desc">Лицензирани шофьори с богат опит</p>
                         </div>
                     </div>
                 </div>
@@ -92,47 +118,41 @@
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <div class="container">
-            <h2>Нашите услуги</h2>
+                <div class="container">
+            <h2 data-translate="services-title">Нашите услуги</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-plane"></i>
                     </div>
-                    <h3>Трансфер от летище София</h3>
-                    <p>Бърз и комфортен трансфер от летище София до всяка точка в града или страната</p>
+                    <h3 data-translate="service-sofia-title">Трансфер от летище София</h3>
+                    <p data-translate="service-sofia-desc">Бърз и комфортен трансфер от летище София до всяка точка в града или страната</p>
                     <ul>
-                        
-                        <li>Помощ с багажа</li>
-                        <li>Максимален комфорт</li>
-                                  
-                        
+                        <li data-translate="service-feature-luggage">Помощ с багажа</li>
+                        <li data-translate="service-feature-comfort">Максимален комфорт</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-plane-departure"></i>
                     </div>
-                    <h3>Трансфер от летище Пловдив</h3>
-                    <p>Луксозен трансфер от летище Пловдив с професионални шофьори</p>
+                    <h3 data-translate="service-plovdiv-title">Трансфер от летище Пловдив</h3>
+                    <p data-translate="service-plovdiv-desc">Луксозен трансфер от летище Пловдив с професионални шофьори</p>
                     <ul>
-                        
-                        <li>Помощ с багажа</li>
-                        <li>Максимален комфорт</li>
-                        
+                        <li data-translate="service-feature-luggage">Помощ с багажа</li>
+                        <li data-translate="service-feature-comfort">Максимален комфорт</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-route"></i>
                     </div>
-                    <h3>Междуградски трансфери</h3>
-                    <p>Комфортни пътувания между градовете в България и близките страни(Румъния, Гърция, Турция)</p>
+                    <h3 data-translate="service-intercity-title">Междуградски трансфери</h3>
+                    <p data-translate="service-intercity-desc">Комфортни пътувания между градовете в България и близките страни(Румъния, Гърция, Турция)</p>
                     <ul>
-                        <li>Дълги разстояния</li>
-                        <li>Спиране за почивка</li>
-                       
-                        <li>Максимален комфорт</li>
+                        <li data-translate="service-feature-distance">Дълги разстояния</li>
+                        <li data-translate="service-feature-rest">Спиране за почивка</li>
+                        <li data-translate="service-feature-comfort">Максимален комфорт</li>
                     </ul>
                 </div>
             </div>
@@ -142,26 +162,26 @@
     <!-- Price Inquiry Section -->
     <section id="prices" class="price-inquiry">
         <div class="container">
-            <h2>Запитване за цена</h2>
+            <h2 data-translate="prices-title">Запитване за цена</h2>
             <div class="inquiry-content">
                 <div class="inquiry-text">
-                    <h3>Получете персонализирана оферта</h3>
-                    <p>Всяко пътуване е уникално и заслужава перфектна цена. Свържете се с нас за персонализирана оферта според вашите нужди.</p>
+                    <h3 data-translate="prices-subtitle">Получете персонализирана оферта</h3>
+                    <p data-translate="prices-description">Всяко пътуване е уникално и заслужава перфектна цена. Свържете се с нас за персонализирана оферта според вашите нужди.</p>
                     <div class="inquiry-features">
                         <div class="inquiry-feature">
                             <i class="fas fa-calculator"></i>
-                            <h4>Точно изчисление</h4>
-                            <p>Цена според разстоянието и броя пътници</p>
+                            <h4 data-translate="feature-calc-title">Точно изчисление</h4>
+                            <p data-translate="feature-calc-desc">Цена според разстоянието и броя пътници</p>
                         </div>
                         <div class="inquiry-feature">
                             <i class="fas fa-clock"></i>
-                            <h4>Бърз отговор</h4>
-                            <p>Получете оферта в рамките на 15 минути</p>
+                            <h4 data-translate="feature-fast-title">Бърз отговор</h4>
+                            <p data-translate="feature-fast-desc">Получете оферта в рамките на 15 минути</p>
                         </div>
                         <div class="inquiry-feature">
                             <i class="fas fa-percent"></i>
-                            <h4>Специални отстъпки</h4>
-                            <p>За редовни клиенти и групови резервации</p>
+                            <h4 data-translate="feature-discount-title">Специални отстъпки</h4>
+                            <p data-translate="feature-discount-desc">За редовни клиенти и групови резервации</p>
                         </div>
                     </div>
                 </div>
@@ -170,13 +190,13 @@
                         <div class="inquiry-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3>Обадете се сега</h3>
-                        <p>Получете незабавна оферта за вашия трансфер</p>
+                        <h3 data-translate="call-title">Обадете се сега</h3>
+                        <p data-translate="call-description">Получете незабавна оферта за вашия трансфер</p>
                         <button id="callButton" class="btn btn-primary">
                             <i class="fas fa-phone"></i>
-                            Обадете се
+                            <span data-translate="btn-call">Обадете се</span>
                         </button>
-                        <p class="inquiry-note">Безплатна консултация и оферта</p>
+                        <p class="inquiry-note" data-translate="call-note">Безплатна консултация и оферта</p>
                     </div>
                 </div>
             </div>
@@ -189,7 +209,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Luxury Transfer</h3>
-                    <p>Вашият надежден партньор за луксозни трансфери от летище София и Пловдив.</p>
+                    <p data-translate="footer-about">Вашият надежден партньор за луксозни трансфери от летище София и Пловдив.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -197,24 +217,23 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Контакти</h4>
+                    <h4 data-translate="footer-contacts">Контакти</h4>
                     <p><i class="fas fa-phone"></i> +359 88 4497938</p>
                     <p><i class="fas fa-envelope"></i> cotsev0@abv.bg</p>
                     <p><i class="fas fa-map-marker-alt"></i> София, България</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Услуги</h4>
+                    <h4 data-translate="footer-services">Услуги</h4>
                     <ul>
-                        <li>Трансфер от летище София</li>
-                        <li>Трансфер от летище Пловдив</li>
-                        <li>Междуградски трансфери</li>
-                        <li>Международни трансфери</li>
-                        
+                        <li data-translate="service-sofia-footer">Трансфер от летище София</li>
+                        <li data-translate="service-plovdiv-footer">Трансфер от летище Пловдив</li>
+                        <li data-translate="service-intercity-footer">Междуградски трансфери</li>
+                        <li data-translate="service-international-footer">Международни трансфери</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Luxury Transfer. Всички права запазени.</p>
+                <p data-translate="footer-copyright">&copy; 2025 Luxury Transfer. Всички права запазени.</p>
             </div>
         </div>
     </footer>

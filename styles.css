@@ -93,6 +93,103 @@ body {
     transition: 0.3s;
 }
 
+/* Language Selector */
+.language-selector {
+    position: relative;
+}
+
+.mobile-language-selector {
+    display: none;
+}
+
+/* Desktop language selector */
+.nav-menu .language-selector {
+    display: block;
+}
+
+.language-dropdown {
+    position: relative;
+}
+
+.language-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.language-btn:hover {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+.language-btn i {
+    font-size: 0.8rem;
+}
+
+.language-btn .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.language-dropdown.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.language-dropdown.active .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-menu li {
+    margin: 0;
+}
+
+.language-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.language-menu a:hover {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+.language-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -803,6 +900,15 @@ body {
         left: 0;
     }
 
+    .mobile-language-selector {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        display: none;
+    }
+
     .hero {
         flex-direction: column;
         text-align: center;
@@ -910,6 +1016,25 @@ body {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+
+    .mobile-language-selector {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-language-selector .language-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        gap: 0.3rem;
+    }
+
+    .mobile-language-selector .language-btn i {
+        font-size: 0.7rem;
+    }
+
+    .language-selector {
+        display: none;
     }
 
     .hero-content {

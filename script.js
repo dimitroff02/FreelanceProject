@@ -502,14 +502,17 @@ document.querySelectorAll('.form-group input, .form-group textarea, .form-group 
     });
 });
 
-// Loading animation for images
-document.querySelectorAll('img').forEach(img => {
+// Loading animation for images - only for car slider images
+document.querySelectorAll('.car-slide img').forEach(img => {
     img.addEventListener('load', () => {
         img.style.opacity = '1';
     });
     
-    img.style.opacity = '0';
-    img.style.transition = 'opacity 0.3s ease';
+    // Only apply opacity animation if image is not already loaded
+    if (!img.complete) {
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
+    }
 });
 
 // Back to top button

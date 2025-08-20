@@ -22,7 +22,21 @@
                     <li><a href="index.html#services">Услуги</a></li>
                     <li><a href="index.html#prices">Запитване за цена</a></li>
                     <li><a href="contact.html" class="active">Контакти</a></li>
+                    <li class="language-selector">
+                        <div class="language-dropdown">
+                            <button class="language-btn">
+                                <i class="fas fa-globe"></i>
+                                <span class="current-lang">BG</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="language-menu">
+                                <li><a href="#" data-lang="bg" class="active">Български</a></li>
+                                <li><a href="#" data-lang="en">English</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
+                <!-- Няма mobile-language-selector -->
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -52,8 +66,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Телефон</h3>
-                            <p>+359 888 123 456</p>
-                            <p>+359 888 123 457</p>
+                            <p><a href="tel:+359884497938">+359 88 4497938</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -62,8 +75,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Имейл</h3>
-                            <p>info@luxurytransfer.bg</p>
-                            <p>reservations@luxurytransfer.bg</p>
+                            <p><a href="mailto:cotsev0@abv.bg">cotsev0@abv.bg</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -118,10 +130,10 @@
                             <textarea id="message" name="message" rows="5" required placeholder="Опишете вашето запитване или проблем..."></textarea>
                         </div>
                         <div class="form-buttons">
-                            <button type="submit" class="btn btn-whatsapp" data-platform="whatsapp">
+                            <button type="button" class="btn btn-whatsapp" data-platform="whatsapp">
                                 <i class="fab fa-whatsapp"></i> Изпрати по WhatsApp
                             </button>
-                            <button type="submit" class="btn btn-viber" data-platform="viber">
+                            <button type="button" class="btn btn-viber" data-platform="viber">
                                 <i class="fab fa-viber"></i> Изпрати по Viber
                             </button>
                         </div>

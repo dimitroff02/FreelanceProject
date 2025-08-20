@@ -36,19 +36,7 @@
                         </div>
                     </li>
                 </ul>
-                <div class="mobile-language-selector">
-                    <div class="language-dropdown">
-                        <button class="language-btn">
-                            <i class="fas fa-globe"></i>
-                            <span class="current-lang">BG</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <ul class="language-menu">
-                            <li><a href="#" data-lang="bg" class="active">Български</a></li>
-                            <li><a href="#" data-lang="en">English</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <!-- Премахнат е дублиращият се mobile-language-selector -->
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -112,13 +100,14 @@
                 </div>
                 <div class="about-image">
                     <img src="car2.jpg" alt="Луксозен автомобил">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-                <div class="container">
+        <div class="container">
             <h2 data-translate="services-title">Нашите услуги</h2>
             <div class="services-grid">
                 <div class="service-card">
@@ -192,10 +181,13 @@
                         </div>
                         <h3 data-translate="call-title">Обадете се сега</h3>
                         <p data-translate="call-description">Получете незабавна оферта за вашия трансфер</p>
-                        <button id="callButton" class="btn btn-primary">
+
+                        <!-- Заменено: бутон -> tel: линк -->
+                        <a href="tel:+359884497938" id="callButton" class="btn btn-primary">
                             <i class="fas fa-phone"></i>
                             <span data-translate="btn-call">Обадете се</span>
-                        </button>
+                        </a>
+
                         <p class="inquiry-note" data-translate="call-note">Безплатна консултация и оферта</p>
                     </div>
                 </div>

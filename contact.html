@@ -117,14 +117,19 @@
                             <label for="message">Съобщение *</label>
                             <textarea id="message" name="message" rows="5" required placeholder="Опишете вашето запитване или проблем..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Изпрати съобщение</button>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-whatsapp" data-platform="whatsapp">
+                                <i class="fab fa-whatsapp"></i> Изпрати по WhatsApp
+                            </button>
+                            <button type="submit" class="btn btn-viber" data-platform="viber">
+                                <i class="fab fa-viber"></i> Изпрати по Viber
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-
-    
 
     <!-- FAQ Section -->
     <section class="faq-section">
@@ -197,7 +202,6 @@
                         <li>Трансфер от летище Пловдив</li>
                         <li>Междуградски трансфери</li>
                         <li>Международни трансфери</li>
-                        
                     </ul>
                 </div>
             </div>

@@ -207,6 +207,20 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
     observer.observe(el);
   });
+  // Ensure phone field is required for contact form
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const phoneField = contactForm.querySelector("#phone");
+    if (phoneField) phoneField.required = true;
+    // ensure label-phone translation includes '*' (translations already include it)
+    const phoneLabel = document.querySelector('[data-translate="label-phone"]');
+    if (phoneLabel && !phoneLabel.textContent.includes("*")) {
+      phoneLabel.textContent =
+        (translations[document.documentElement.lang] || translations["en"])[
+          "label-phone"
+        ] || phoneLabel.textContent + " *";
+    }
+  }
 });
 
 // Back to top button
@@ -256,6 +270,7 @@ const translations = {
     "nav-services": "Услуги",
     "nav-prices": "Запитване за цена",
     "nav-contact": "Контакти",
+    "nav-brand": "Luxury Transfer",
     // Hero Section
     "hero-title": "Луксозни трансфери от летище",
     "hero-subtitle":
@@ -325,15 +340,37 @@ const translations = {
     "contact-email": "Имейл",
     "contact-address": "Адрес",
     "contact-hours": "Работно време",
+    "hours-available": "24/7 на разположение",
+    "hours-reservations": "Резервации онлайн - 24/7",
     "form-note":
       "За най-бърз отговор използвайте WhatsApp или Viber — попълнете име, телефон и съобщение.",
     "label-name": "Име *",
-    "label-phone": "Телефон",
+    "label-phone": "Телефон *",
     "label-subject": "Тема",
+    "subject-placeholder": "Изберете тема",
+    "subject-reservation": "Резервация",
+    "subject-pricing": "Цени",
+    "subject-service": "Услуги",
+    "subject-complaint": "Жалба",
+    "subject-other": "Друго",
     "label-message": "Съобщение *",
     "message-placeholder": "Опишете вашето запитване или проблем...",
     "btn-whatsapp": "Изпрати по WhatsApp",
     "btn-viber": "Изпрати по Viber",
+    // FAQ
+    "faq-title": "Често задавани въпроси",
+    "faq-q1": "Как мога да резервирам трансфер?",
+    "faq-a1":
+      "Можете да резервирате трансфер чрез телефон, имейл или чрез нашата контактна форма. Препоръчваме резервацията да се направи поне 24 часа преди пътуването.",
+    "faq-q2": "Колко време предварително трябва да резервирам?",
+    "faq-a2":
+      "За най-добро обслужване препоръчваме резервация поне 24 часа предварително. За спешни случаи обаче можем да организираме трансфер и в рамките на няколко часа.",
+    "faq-q3": "Какво включва цената на трансфера?",
+    "faq-a3":
+      "Цената включва трансфера от точка А до точка Б, среща в летището и помощ с багажа.",
+    "faq-q4": "Работите ли 24/7?",
+    "faq-a4":
+      "Да, нашите услуги са на разположение 24 часа на ден, 7 дни в седмицата, включително празници и почивни дни.",
   },
   en: {
     // Navigation
@@ -342,6 +379,7 @@ const translations = {
     "nav-services": "Services",
     "nav-prices": "Price Inquiry",
     "nav-contact": "Contact",
+    "nav-brand": "Luxury Transfer",
     // Hero Section
     "hero-title": "Luxury Airport Transfers",
     "hero-subtitle":
@@ -411,15 +449,37 @@ const translations = {
     "contact-email": "Email",
     "contact-address": "Address",
     "contact-hours": "Working hours",
+    "hours-available": "24/7 available",
+    "hours-reservations": "Online reservations - 24/7",
     "form-note":
       "For fastest response use WhatsApp or Viber — fill name, phone and message.",
     "label-name": "Name *",
-    "label-phone": "Phone",
+    "label-phone": "Phone *",
     "label-subject": "Subject",
+    "subject-placeholder": "Choose subject",
+    "subject-reservation": "Reservation",
+    "subject-pricing": "Pricing",
+    "subject-service": "Service",
+    "subject-complaint": "Complaint",
+    "subject-other": "Other",
     "label-message": "Message *",
     "message-placeholder": "Describe your inquiry or issue...",
     "btn-whatsapp": "Send via WhatsApp",
     "btn-viber": "Send via Viber",
+    // FAQ
+    "faq-title": "Frequently Asked Questions",
+    "faq-q1": "How can I book a transfer?",
+    "faq-a1":
+      "You can book a transfer by phone, email or via our contact form. We recommend booking at least 24 hours in advance.",
+    "faq-q2": "How far in advance should I book?",
+    "faq-a2":
+      "For best service we recommend booking at least 24 hours ahead. For urgent cases we can often arrange transfers within a few hours.",
+    "faq-q3": "What is included in the transfer price?",
+    "faq-a3":
+      "The price includes the transfer from point A to point B, meeting at the airport and assistance with luggage.",
+    "faq-q4": "Are you available 24/7?",
+    "faq-a4":
+      "Yes, our services are available 24 hours a day, 7 days a week, including holidays.",
   },
 };
 
@@ -468,6 +528,17 @@ function applyLanguage(lang) {
     }
   });
 
+  // translate option elements inside selects (explicitly)
+  const optionElements = document.querySelectorAll(
+    "select option[data-translate]"
+  );
+  optionElements.forEach((opt) => {
+    const key = opt.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key]) {
+      opt.textContent = translations[lang][key];
+    }
+  });
+
   // Update page title
   document.title =
     lang === "bg"
@@ -509,14 +580,16 @@ languageLinks.forEach((link) => {
   });
 });
 
-// Init language from storage or default BG
+// Init language from storage or default BG (Bulgarian)
 const savedLang = (() => {
   try {
+    // prefer previously saved preference, otherwise default to Bulgarian
     return localStorage.getItem("site_lang") || "bg";
   } catch (e) {
     return "bg";
   }
 })();
+// Apply saved/default language
 applyLanguage(savedLang);
 
 console.log("Luxury Transfer website loaded successfully!");

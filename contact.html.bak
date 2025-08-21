@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="icon" href="icon.png" type="image/png" />
   </head>
   <body>
     <!-- Header -->
@@ -21,83 +20,68 @@
       <nav class="nav">
         <div class="nav-container">
           <div class="logo">
-            <img src="icon.png" alt="Luxury Transfer logo" class="site-logo" />
-            <h2 data-translate="nav-brand">Luxury Transfer</h2>
+            <h2>Luxury Transfer</h2>
           </div>
           <ul class="nav-menu">
             <li><a href="index.html" data-translate="nav-home">Начало</a></li>
-            <li>
-              <a href="index.html#about" data-translate="nav-about">За нас</a>
-            </li>
-            <li>
-              <a href="index.html#services" data-translate="nav-services"
-                >Услуги</a
-              >
-            </li>
-            <li>
-              <a href="index.html#prices" data-translate="nav-prices"
-                >Запитване за цена</a
-              >
-            </li>
-            <li>
-              <a href="contact.html" class="active" data-translate="nav-contact"
-                >Контакти</a
-              >
-            </li>
+            <li><a href="index.html#about" data-translate="nav-about">За нас</a></li>
+            <li><a href="index.html#services" data-translate="nav-services">Услуги</a></li>
+            <li><a href="index.html#prices" data-translate="nav-prices">Запитване за цена</a></li>
+            <li><a href="contact.html" class="active" data-translate="nav-contact">Контакти</a></li>
             <li class="language-selector">
-              <div class="language-dropdown">
-                <button class="language-btn">
-                  <i class="fas fa-globe"></i>
+              <section class="faq-section">
+                <div class="container">
+                  <h2 data-translate="faq-title">Често задавани въпроси</h2>
                   <span class="current-lang">BG</span>
                   <i class="fas fa-chevron-down"></i>
                 </button>
-                <ul class="language-menu">
+                        <h3 data-translate="faq-q1">Как мога да резервирам трансфер?</h3>
                   <li>
                     <a href="#" data-lang="bg" class="active">Български</a>
                   </li>
-                  <li><a href="#" data-lang="en">English</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+                        <p data-translate="faq-a1">
+                          Можете да резервирате трансфер чрез телефон, имейл или чрез
+                          нашата контактна форма. Препоръчваме резервацията да се направи
+                          поне 24 часа преди пътуване.
+                        </p>
           <!-- Няма mobile-language-selector -->
           <div class="hamburger">
             <span></span>
             <span></span>
-            <span></span>
+                        <h3 data-translate="faq-q2">Колко време предварително трябва да резервирам?</h3>
           </div>
         </div>
       </nav>
-    </header>
-
-    <!-- Contact Hero -->
-    <section class="contact-hero">
-      <div class="container">
+                        <p data-translate="faq-a2">
+                          За най-добро обслужване препоръчваме резервация поне 24 часа
+                          предварително. За спешни случаи може да организираме трансфер и
+                          в рамките на няколко часа.
+                        </p>
         <h1 data-translate="contact-hero-title">Свържете се с нас</h1>
         <p data-translate="contact-hero-subtitle">
           Готови сме да отговорим на всички ваши въпроси и да организираме
           перфектния трансфер за вас
-        </p>
+                        <h3 data-translate="faq-q3">Какво включва цената на трансфера?</h3>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-      <div class="container">
-        <div class="contact-content">
-          <div class="contact-info">
+                        <p data-translate="faq-a3">
+                          Цената включва трансфера от точка А до точка Б, среща в летището
+                          и помощ с багажа. Допълнителни услуги може да са включени в
+                          премиум пакетите.
+                        </p>
             <h2 data-translate="contact-info-title">Нашите контакти</h2>
             <div class="contact-item">
               <div class="contact-icon">
                 <i class="fas fa-phone"></i>
-              </div>
+                        <h3 data-translate="faq-q4">Работите ли 24/7?</h3>
               <div class="contact-details">
                 <h3 data-translate="contact-phone">Телефон</h3>
                 <p><a href="tel:+359884497938">+359 88 4497938</a></p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
+                        <p data-translate="faq-a4">
+                          Да, нашите услуги са на разположение 24 часа на ден, 7 дни в
+                          седмицата, включително празници и почивни дни.
+                        </p>
                 <i class="fas fa-envelope"></i>
               </div>
               <div class="contact-details">
@@ -121,10 +105,8 @@
               </div>
               <div class="contact-details">
                 <h3 data-translate="contact-hours">Работно време</h3>
-                <p data-translate="hours-available">24/7 на разположение</p>
-                <p data-translate="hours-reservations">
-                  Резервации онлайн - 24/7
-                </p>
+                <p>24/7 на разположение</p>
+                <p>Резервации онлайн - 24/7</p>
               </div>
             </div>
           </div>
@@ -143,35 +125,18 @@
               </div>
               <!-- Email премахнат: предпочитаме контакт чрез телефон/чат -->
               <div class="form-group">
-                <label for="phone" data-translate="label-phone"
-                  >Телефон *</label
-                >
-                <input type="tel" id="phone" name="phone" required />
+                <label for="phone" data-translate="label-phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" />
               </div>
               <div class="form-group">
                 <label for="subject" data-translate="label-subject">Тема</label>
                 <select id="subject" name="subject">
-                  <option value="" data-translate="subject-placeholder">
-                    Изберете тема
-                  </option>
-                  <option
-                    value="reservation"
-                    data-translate="subject-reservation"
-                  >
-                    Резервация
-                  </option>
-                  <option value="pricing" data-translate="subject-pricing">
-                    Цени
-                  </option>
-                  <option value="service" data-translate="subject-service">
-                    Услуги
-                  </option>
-                  <option value="complaint" data-translate="subject-complaint">
-                    Жалба
-                  </option>
-                  <option value="other" data-translate="subject-other">
-                    Друго
-                  </option>
+                  <option value="" data-translate="subject-placeholder">Изберете тема</option>
+                  <option value="reservation" data-translate="subject-reservation">Резервация</option>
+                  <option value="pricing" data-translate="subject-pricing">Цени</option>
+                  <option value="service" data-translate="subject-service">Услуги</option>
+                  <option value="complaint" data-translate="subject-complaint">Жалба</option>
+                  <option value="other" data-translate="subject-other">Друго</option>
                 </select>
               </div>
               <div class="form-group">
@@ -214,15 +179,15 @@
     <!-- FAQ Section -->
     <section class="faq-section">
       <div class="container">
-        <h2 data-translate="faq-title">Често задавани въпроси</h2>
+        <h2>Често задавани въпроси</h2>
         <div class="faq-grid">
           <div class="faq-item">
             <div class="faq-question">
-              <h3 data-translate="faq-q1">Как мога да резервирам трансфер?</h3>
+              <h3>Как мога да резервирам трансфер?</h3>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-              <p data-translate="faq-a1">
+              <p>
                 Можете да резервирате трансфер чрез телефон, имейл или чрез
                 нашата контактна форма. Препоръчваме резервацията да се направи
                 поне 24 часа преди пътуването.
@@ -231,13 +196,11 @@
           </div>
           <div class="faq-item">
             <div class="faq-question">
-              <h3 data-translate="faq-q2">
-                Колко време предварително трябва да резервирам?
-              </h3>
+              <h3>Колко време предварително трябва да резервирам?</h3>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-              <p data-translate="faq-a2">
+              <p>
                 За най-добро обслужване препоръчваме резервация поне 24 часа
                 предварително. За спешни случаи обаче можем да организираме
                 трансфер и в рамките на няколко часа.
@@ -246,13 +209,11 @@
           </div>
           <div class="faq-item">
             <div class="faq-question">
-              <h3 data-translate="faq-q3">
-                Какво включва цената на трансфера?
-              </h3>
+              <h3>Какво включва цената на трансфера?</h3>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-              <p data-translate="faq-a3">
+              <p>
                 Цената включва трансфера от точка А до точка Б, среща в летището
                 и помощ с багажа. Допълнителни услуги като закуски и зареждане
                 са включени в премиум пакетите.
@@ -261,11 +222,11 @@
           </div>
           <div class="faq-item">
             <div class="faq-question">
-              <h3 data-translate="faq-q4">Работите ли 24/7?</h3>
+              <h3>Работите ли 24/7?</h3>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-              <p data-translate="faq-a4">
+              <p>
                 Да, нашите услуги са на разположение 24 часа на ден, 7 дни в
                 седмицата, включително празници и почивни дни.
               </p>
@@ -280,7 +241,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Luxury Transfer</h3>
+            <h3 data-translate="footer-name">Luxury Transfer</h3>
             <p data-translate="footer-about">
               Вашият надежден партньор за луксозни трансфери от летище София и
               Пловдив.
@@ -300,25 +261,15 @@
           <div class="footer-section">
             <h4 data-translate="footer-services">Услуги</h4>
             <ul>
-              <li data-translate="service-sofia-footer">
-                Трансфер от летище София
-              </li>
-              <li data-translate="service-plovdiv-footer">
-                Трансфер от летище Пловдив
-              </li>
-              <li data-translate="service-intercity-footer">
-                Междуградски трансфери
-              </li>
-              <li data-translate="service-international-footer">
-                Международни трансфери
-              </li>
+              <li data-translate="service-sofia-footer">Трансфер от летище София</li>
+              <li data-translate="service-plovdiv-footer">Трансфер от летище Пловдив</li>
+              <li data-translate="service-intercity-footer">Междуградски трансфери</li>
+              <li data-translate="service-international-footer">Международни трансфери</li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p data-translate="footer-copyright">
-            &copy; 2025 Luxury Transfer. Всички права запазени.
-          </p>
+          <p data-translate="footer-copyright">&copy; 2025 Luxury Transfer. Всички права запазени.</p>
         </div>
       </div>
     </footer>

@@ -44,6 +44,21 @@ body {
   font-size: 1.5rem;
 }
 
+/* Logo image (favicon used as logo in header) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.site-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .nav-menu {
   display: flex;
   list-style: none;

@@ -1,115 +1,143 @@
 // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
 
 if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
 
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
+  document.querySelectorAll(".nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
     });
+  });
 }
 
 // Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
 });
 
 // Car Slider
 let currentSlide = 0;
-const slides = document.querySelectorAll('.car-slide');
+const slides = document.querySelectorAll(".car-slide");
 function showSlide(index) {
-    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
 }
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
 }
 if (slides.length > 0) setInterval(nextSlide, 4000);
 
 // FAQ Accordion
-const faqItems = document.querySelectorAll('.faq-item');
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    if (!question) return;
-    question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(other => other.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
-    });
+const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach((item) => {
+  const question = item.querySelector(".faq-question");
+  if (!question) return;
+  question.addEventListener("click", () => {
+    const isActive = item.classList.contains("active");
+    faqItems.forEach((other) => other.classList.remove("active"));
+    if (!isActive) item.classList.add("active");
+  });
 });
 
-// ✅ Contact Form Handling (WhatsApp & Viber) — два отделни бутона
-const contactForm = document.getElementById('contactForm');
+// ✅ Contact Form Handling (WhatsApp & Viber) — simplified: phone-only chat
+const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-    const waBtn = contactForm.querySelector('[data-platform="whatsapp"]');
-    const viberBtn = contactForm.querySelector('[data-platform="viber"]');
+  const waBtn = contactForm.querySelector('[data-platform="whatsapp"]');
+  const viberBtn = contactForm.querySelector('[data-platform="viber"]');
+  const phoneField = contactForm.querySelector("#phone");
 
-    const buildText = () => {
-        const formData = new FormData(contactForm);
-        const name = formData.get("name") || "";
-        const email = formData.get("email") || "";
-        const phone = formData.get("phone") || "";
-        const subject = formData.get("subject") || "";
-        const message = formData.get("message") || "";
+  const buildText = () => {
+    const formData = new FormData(contactForm);
+    const name = formData.get("name") || "";
+    const phone = formData.get("phone") || "";
+    const subject = formData.get("subject") || "";
+    const message = formData.get("message") || "";
 
-        return `Здравейте, казвам се ${name}.
-Имейл: ${email}
+    return `Здравейте, казвам се ${name}.
 Телефон: ${phone ? phone : "не е посочен"}
 Тема: ${subject ? subject : "няма"}
 Съобщение: ${message}`;
-    };
+  };
 
-    // Номерът в международен формат БЕЗ +
-    const number = "359884497938"; // +359 88 449 7938
+  // Номерът в международен формат БЕЗ +
+  const number = "359884497938"; // +359 88 449 7938
 
-    if (waBtn) {
-        waBtn.addEventListener('click', () => {
-            const text = buildText();
-            const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
-            window.open(url, "_blank");
-        });
-    }
+  if (waBtn) {
+    waBtn.addEventListener("click", () => {
+      const phoneVal = phoneField.value.trim();
+      if (!phoneVal) {
+        showNotification(
+          "Моля въведете телефонен номер, за да изпратите съобщение през WhatsApp.",
+          "error"
+        );
+        return;
+      }
 
-    if (viberBtn) {
-        viberBtn.addEventListener('click', () => {
-            const text = buildText();
-            const url = `viber://chat?number=%2B${number}&text=${encodeURIComponent(text)}`;
-            window.location.href = url;
-        });
-    }
+      const text = buildText();
+      const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    });
+  }
+
+  if (viberBtn) {
+    viberBtn.addEventListener("click", () => {
+      const phoneVal = phoneField.value.trim();
+      if (!phoneVal) {
+        showNotification(
+          "Моля въведете телефонен номер, за да изпратите съобщение през Viber.",
+          "error"
+        );
+        return;
+      }
+
+      const text = buildText();
+      const url = `viber://chat?number=%2B${number}&text=${encodeURIComponent(
+        text
+      )}`;
+      window.location.href = url;
+    });
+  }
+
+  // Ensure phone is required for chat
+  if (phoneField) phoneField.required = true;
 }
 
 // Notification system (за други съобщения)
-function showNotification(message, type = 'info') {
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(n => n.remove());
+function showNotification(message, type = "info") {
+  const existingNotifications = document.querySelectorAll(".notification");
+  existingNotifications.forEach((n) => n.remove());
 
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
+  const notification = document.createElement("div");
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
         <div class="notification-content">
             <span class="notification-message">${message}</span>
             <button class="notification-close">&times;</button>
         </div>
     `;
-    notification.style.cssText = `
+  notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#007bff'};
+        background: ${
+          type === "success"
+            ? "#28a745"
+            : type === "error"
+            ? "#dc3545"
+            : "#007bff"
+        };
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 10px;
@@ -118,18 +146,20 @@ function showNotification(message, type = 'info') {
         max-width: 400px;
         animation: slideInRight 0.3s ease;
     `;
-    document.body.appendChild(notification);
+  document.body.appendChild(notification);
 
-    notification.querySelector('.notification-close').addEventListener('click', () => notification.remove());
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
+  notification
+    .querySelector(".notification-close")
+    .addEventListener("click", () => notification.remove());
+  setTimeout(() => {
+    if (notification.parentNode) {
+      notification.style.animation = "slideOutRight 0.3s ease";
+      setTimeout(() => notification.remove(), 300);
+    }
+  }, 5000);
 }
 
-const notificationStyles = document.createElement('style');
+const notificationStyles = document.createElement("style");
 notificationStyles.textContent = `
     @keyframes slideInRight {
         from { transform: translateX(100%); opacity: 0; }
@@ -143,44 +173,46 @@ notificationStyles.textContent = `
 document.head.appendChild(notificationStyles);
 
 // Header scroll effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+  if (header) {
+    if (window.scrollY > 100) {
+      header.style.background = "rgba(255, 255, 255, 0.98)";
+      header.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
+    } else {
+      header.style.background = "rgba(255, 255, 255, 0.95)";
+      header.style.boxShadow = "none";
     }
+  }
 });
 
 // Intersection Observer
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
 }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .price-card, .feature, .contact-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(
+    ".service-card, .price-card, .feature, .contact-item"
+  );
+  animatedElements.forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(el);
+  });
 });
 
 // Back to top button
-const backToTopButton = document.createElement('button');
+const backToTopButton = document.createElement("button");
 backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-backToTopButton.className = 'back-to-top';
+backToTopButton.className = "back-to-top";
 backToTopButton.style.cssText = `
     position: fixed;
     bottom: 30px;
@@ -200,211 +232,242 @@ backToTopButton.style.cssText = `
 `;
 document.body.appendChild(backToTopButton);
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopButton.style.opacity = '1';
-        backToTopButton.style.visibility = 'visible';
-    } else {
-        backToTopButton.style.opacity = '0';
-        backToTopButton.style.visibility = 'hidden';
-    }
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopButton.style.opacity = "1";
+    backToTopButton.style.visibility = "visible";
+  } else {
+    backToTopButton.style.opacity = "0";
+    backToTopButton.style.visibility = "hidden";
+  }
 });
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 // ==========================
 // Language Translations
 // ==========================
 const translations = {
-    bg: {
-        // Navigation
-        'nav-home': 'Начало',
-        'nav-about': 'За нас',
-        'nav-services': 'Услуги',
-        'nav-prices': 'Запитване за цена',
-        'nav-contact': 'Контакти',
-        // Hero Section
-        'hero-title': 'Луксозни трансфери от летище',
-        'hero-subtitle': 'Пътувайте в стил и комфорт с нашите нови премиум автомобили',
-        'hero-description': 'Превозваме от София / Пловдив до всяка точка в България + близките страни(Румъния, Гърция, Турция)',
-        'btn-price-inquiry': 'Запитване за цена',
-        'btn-reserve': 'Резервирай',
-        // About Section
-        'about-title': 'За нас',
-        'about-subtitle': 'Вашият надежден партньор за луксозни трансфери',
-        'about-description': 'Специализираме се в предоставянето на премиум трансфер услуги от летище София и летище Пловдив. Нашата флотилия включва най-новите луксозни автомобили, за да гарантираме максимален комфорт и стил при всяко пътуване.',
-        'feature-cars-title': 'Луксозни автомобили',
-        'feature-cars-desc': 'от 2024 година',
-        'feature-24h-title': '24/7 на разположение',
-        'feature-24h-desc': 'Готови сме да ви обслужим по всяко време',
-        'feature-safety-title': 'Безопасност',
-        'feature-safety-desc': 'Лицензирани шофьори с богат опит',
-        // Services Section
-        'services-title': 'Нашите услуги',
-        'service-sofia-title': 'Трансфер от летище София',
-        'service-sofia-desc': 'Бърз и комфортен трансфер от летище София до всяка точка в града или страната',
-        'service-plovdiv-title': 'Трансфер от летище Пловдив',
-        'service-plovdiv-desc': 'Луксозен трансфер от летище Пловдив с професионални шофьори',
-        'service-intercity-title': 'Междуградски трансфери',
-        'service-intercity-desc': 'Комфортни пътувания между градовете в България и близките страни(Румъния, Гърция, Турция)',
-        'service-feature-luggage': 'Помощ с багажа',
-        'service-feature-comfort': 'Максимален комфорт',
-        'service-feature-distance': 'Дълги разстояния',
-        'service-feature-rest': 'Спиране за почивка',
-        // Price Inquiry Section
-        'prices-title': 'Запитване за цена',
-        'prices-subtitle': 'Получете персонализирана оферта',
-        'prices-description': 'Всяко пътуване е уникално и заслужава перфектна цена. Свържете се с нас за персонализирана оферта според вашите нужди.',
-        'feature-calc-title': 'Точно изчисление',
-        'feature-calc-desc': 'Цена според разстоянието и броя пътници',
-        'feature-fast-title': 'Бърз отговор',
-        'feature-fast-desc': 'Получете оферта в рамките на 15 минути',
-        'feature-discount-title': 'Специални отстъпки',
-        'feature-discount-desc': 'За редовни клиенти и групови резервации',
-        'call-title': 'Обадете се сега',
-        'call-description': 'Получете незабавна оферта за вашия трансфер',
-        'btn-call': 'Обадете се',
-        'call-note': 'Безплатна консултация и оферта',
-        // Footer
-        'footer-about': 'Вашият надежден партньор за луксозни трансфери от летище София и Пловдив.',
-        'footer-contacts': 'Контакти',
-        'footer-services': 'Услуги',
-        'service-sofia-footer': 'Трансфер от летище София',
-        'service-plovdiv-footer': 'Трансфер от летище Пловдив',
-        'service-intercity-footer': 'Междуградски трансфери',
-        'service-international-footer': 'Международни трансфери',
-        'footer-copyright': '© 2025 Luxury Transfer. Всички права запазени.'
-    },
-    en: {
-        // Navigation
-        'nav-home': 'Home',
-        'nav-about': 'About',
-        'nav-services': 'Services',
-        'nav-prices': 'Price Inquiry',
-        'nav-contact': 'Contact',
-        // Hero Section
-        'hero-title': 'Luxury Airport Transfers',
-        'hero-subtitle': 'Travel in style and comfort with our new premium vehicles',
-        'hero-description': 'We transport from Sofia / Plovdiv to any point in Bulgaria + neighboring countries (Romania, Greece, Turkey)',
-        'btn-price-inquiry': 'Price Inquiry',
-        'btn-reserve': 'Reserve',
-        // About
-        'about-title': 'About Us',
-        'about-subtitle': 'Your reliable partner for luxury transfers',
-        'about-description': 'We specialize in providing premium transfer services from Sofia Airport and Plovdiv Airport. Our fleet includes the latest luxury vehicles to ensure maximum comfort and style for every journey.',
-        'feature-cars-title': 'Luxury Vehicles',
-        'feature-cars-desc': 'from 2024',
-        'feature-24h-title': '24/7 Available',
-        'feature-24h-desc': 'We are ready to serve you at any time',
-        'feature-safety-title': 'Safety',
-        'feature-safety-desc': 'Licensed drivers with rich experience',
-        // Services
-        'services-title': 'Our Services',
-        'service-sofia-title': 'Sofia Airport Transfer',
-        'service-sofia-desc': 'Fast and comfortable transfer from Sofia Airport to any point in the city or country',
-        'service-plovdiv-title': 'Plovdiv Airport Transfer',
-        'service-plovdiv-desc': 'Luxury transfer from Plovdiv Airport with professional drivers',
-        'service-intercity-title': 'Intercity Transfers',
-        'service-intercity-desc': 'Comfortable journeys between cities in Bulgaria and neighboring countries (Romania, Greece, Turkey)',
-        'service-feature-luggage': 'Luggage assistance',
-        'service-feature-comfort': 'Maximum comfort',
-        'service-feature-distance': 'Long distances',
-        'service-feature-rest': 'Rest stops',
-        // Price Inquiry
-        'prices-title': 'Price Inquiry',
-        'prices-subtitle': 'Get a personalized quote',
-        'prices-description': 'Every journey is unique and deserves a perfect price. Contact us for a personalized quote according to your needs.',
-        'feature-calc-title': 'Accurate calculation',
-        'feature-calc-desc': 'Price based on distance and number of passengers',
-        'feature-fast-title': 'Fast response',
-        'feature-fast-desc': 'Get a quote within 15 minutes',
-        'feature-discount-title': 'Special discounts',
-        'feature-discount-desc': 'For regular customers and group reservations',
-        'call-title': 'Call Now',
-        'call-description': 'Get an immediate quote for your transfer',
-        'btn-call': 'Call Now',
-        'call-note': 'Free consultation and quote',
-        // Footer
-        'footer-about': 'Your reliable partner for luxury transfers from Sofia and Plovdiv airports.',
-        'footer-contacts': 'Contacts',
-        'footer-services': 'Services',
-        'service-sofia-footer': 'Sofia Airport Transfer',
-        'service-plovdiv-footer': 'Plovdiv Airport Transfer',
-        'service-intercity-footer': 'Intercity Transfers',
-        'service-international-footer': 'International Transfers',
-        'footer-copyright': '© 2025 Luxury Transfer. All rights reserved.'
-    }
+  bg: {
+    // Navigation
+    "nav-home": "Начало",
+    "nav-about": "За нас",
+    "nav-services": "Услуги",
+    "nav-prices": "Запитване за цена",
+    "nav-contact": "Контакти",
+    // Hero Section
+    "hero-title": "Луксозни трансфери от летище",
+    "hero-subtitle":
+      "Пътувайте в стил и комфорт с нашите нови премиум автомобили",
+    "hero-description":
+      "Превозваме от София / Пловдив до всяка точка в България + близките страни(Румъния, Гърция, Турция)",
+    "btn-price-inquiry": "Запитване за цена",
+    "btn-reserve": "Резервирай",
+    // About Section
+    "about-title": "За нас",
+    "about-subtitle": "Вашият надежден партньор за луксозни трансфери",
+    "about-description":
+      "Специализираме се в предоставянето на премиум трансфер услуги от летище София и летище Пловдив. Нашата флотилия включва най-новите луксозни автомобили, за да гарантираме максимален комфорт и стил при всяко пътуване.",
+    "feature-cars-title": "Луксозни автомобили",
+    "feature-cars-desc": "от 2024 година",
+    "feature-24h-title": "24/7 на разположение",
+    "feature-24h-desc": "Готови сме да ви обслужим по всяко време",
+    "feature-safety-title": "Безопасност",
+    "feature-safety-desc": "Лицензирани шофьори с богат опит",
+    // Services Section
+    "services-title": "Нашите услуги",
+    "service-sofia-title": "Трансфер от летище София",
+    "service-sofia-desc":
+      "Бърз и комфортен трансфер от летище София до всяка точка в града или страната",
+    "service-plovdiv-title": "Трансфер от летище Пловдив",
+    "service-plovdiv-desc":
+      "Луксозен трансфер от летище Пловдив с професионални шофьори",
+    "service-intercity-title": "Междуградски трансфери",
+    "service-intercity-desc":
+      "Комфортни пътувания между градовете в България и близките страни(Румъния, Гърция, Турция)",
+    "service-feature-luggage": "Помощ с багажа",
+    "service-feature-comfort": "Максимален комфорт",
+    "service-feature-distance": "Дълги разстояния",
+    "service-feature-rest": "Спиране за почивка",
+    // Price Inquiry Section
+    "prices-title": "Запитване за цена",
+    "prices-subtitle": "Получете персонализирана оферта",
+    "prices-description":
+      "Всяко пътуване е уникално и заслужава перфектна цена. Свържете се с нас за персонализирана оферта според вашите нужди.",
+    "feature-calc-title": "Точно изчисление",
+    "feature-calc-desc": "Цена според разстоянието и броя пътници",
+    "feature-fast-title": "Бърз отговор",
+    "feature-fast-desc": "Получете оферта в рамките на 15 минути",
+    "feature-discount-title": "Специални отстъпки",
+    "feature-discount-desc": "За редовни клиенти и групови резервации",
+    "call-title": "Обадете се сега",
+    "call-description": "Получете незабавна оферта за вашия трансфер",
+    "btn-call": "Обадете се",
+    "call-note": "Безплатна консултация и оферта",
+    // Footer
+    "footer-about":
+      "Вашият надежден партньор за луксозни трансфери от летище София и Пловдив.",
+    "footer-contacts": "Контакти",
+    "footer-services": "Услуги",
+    "service-sofia-footer": "Трансфер от летище София",
+    "service-plovdiv-footer": "Трансфер от летище Пловдив",
+    "service-intercity-footer": "Междуградски трансфери",
+    "service-international-footer": "Международни трансфери",
+    "footer-copyright": "© 2025 Luxury Transfer. Всички права запазени.",
+  },
+  en: {
+    // Navigation
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-services": "Services",
+    "nav-prices": "Price Inquiry",
+    "nav-contact": "Contact",
+    // Hero Section
+    "hero-title": "Luxury Airport Transfers",
+    "hero-subtitle":
+      "Travel in style and comfort with our new premium vehicles",
+    "hero-description":
+      "We transport from Sofia / Plovdiv to any point in Bulgaria + neighboring countries (Romania, Greece, Turkey)",
+    "btn-price-inquiry": "Price Inquiry",
+    "btn-reserve": "Reserve",
+    // About
+    "about-title": "About Us",
+    "about-subtitle": "Your reliable partner for luxury transfers",
+    "about-description":
+      "We specialize in providing premium transfer services from Sofia Airport and Plovdiv Airport. Our fleet includes the latest luxury vehicles to ensure maximum comfort and style for every journey.",
+    "feature-cars-title": "Luxury Vehicles",
+    "feature-cars-desc": "from 2024",
+    "feature-24h-title": "24/7 Available",
+    "feature-24h-desc": "We are ready to serve you at any time",
+    "feature-safety-title": "Safety",
+    "feature-safety-desc": "Licensed drivers with rich experience",
+    // Services
+    "services-title": "Our Services",
+    "service-sofia-title": "Sofia Airport Transfer",
+    "service-sofia-desc":
+      "Fast and comfortable transfer from Sofia Airport to any point in the city or country",
+    "service-plovdiv-title": "Plovdiv Airport Transfer",
+    "service-plovdiv-desc":
+      "Luxury transfer from Plovdiv Airport with professional drivers",
+    "service-intercity-title": "Intercity Transfers",
+    "service-intercity-desc":
+      "Comfortable journeys between cities in Bulgaria and neighboring countries (Romania, Greece, Turkey)",
+    "service-feature-luggage": "Luggage assistance",
+    "service-feature-comfort": "Maximum comfort",
+    "service-feature-distance": "Long distances",
+    "service-feature-rest": "Rest stops",
+    // Price Inquiry
+    "prices-title": "Price Inquiry",
+    "prices-subtitle": "Get a personalized quote",
+    "prices-description":
+      "Every journey is unique and deserves a perfect price. Contact us for a personalized quote according to your needs.",
+    "feature-calc-title": "Accurate calculation",
+    "feature-calc-desc": "Price based on distance and number of passengers",
+    "feature-fast-title": "Fast response",
+    "feature-fast-desc": "Get a quote within 15 minutes",
+    "feature-discount-title": "Special discounts",
+    "feature-discount-desc": "For regular customers and group reservations",
+    "call-title": "Call Now",
+    "call-description": "Get an immediate quote for your transfer",
+    "btn-call": "Call Now",
+    "call-note": "Free consultation and quote",
+    // Footer
+    "footer-about":
+      "Your reliable partner for luxury transfers from Sofia and Plovdiv airports.",
+    "footer-contacts": "Contacts",
+    "footer-services": "Services",
+    "service-sofia-footer": "Sofia Airport Transfer",
+    "service-plovdiv-footer": "Plovdiv Airport Transfer",
+    "service-intercity-footer": "Intercity Transfers",
+    "service-international-footer": "International Transfers",
+    "footer-copyright": "© 2025 Luxury Transfer. All rights reserved.",
+  },
 };
 
 // Language Selector Functionality (dropdown в навигацията)
-const languageBtns = document.querySelectorAll('.language-btn');
-const languageDropdowns = document.querySelectorAll('.language-dropdown');
-const languageLinks = document.querySelectorAll('.language-menu a');
-const currentLangElements = document.querySelectorAll('.current-lang');
+const languageBtns = document.querySelectorAll(".language-btn");
+const languageDropdowns = document.querySelectorAll(".language-dropdown");
+const languageLinks = document.querySelectorAll(".language-menu a");
+const currentLangElements = document.querySelectorAll(".current-lang");
 
 // Toggle language dropdown
-languageBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const dropdown = btn.closest('.language-dropdown');
-        dropdown?.classList.toggle('active');
-    });
+languageBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const dropdown = btn.closest(".language-dropdown");
+    dropdown?.classList.toggle("active");
+  });
 });
 
 // Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-    languageDropdowns.forEach(dropdown => {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('active');
-        }
-    });
+document.addEventListener("click", (e) => {
+  languageDropdowns.forEach((dropdown) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
 });
 
 // Function to change language
 function applyLanguage(lang) {
-    const elements = document.querySelectorAll('[data-translate]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
+  const elements = document.querySelectorAll("[data-translate]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
 
-    // Update page title
-    document.title = (lang === 'bg')
-        ? 'Luxury Transfer - Луксозни трансфери от летище София и Пловдив'
-        : 'Luxury Transfer - Luxury Transfers from Sofia and Plovdiv Airports';
+  // Update page title
+  document.title =
+    lang === "bg"
+      ? "Luxury Transfer - Луксозни трансфери от летище София и Пловдив"
+      : "Luxury Transfer - Luxury Transfers from Sofia and Plovdiv Airports";
 
-    // Update HTML lang attribute
-    document.documentElement.lang = lang;
+  // Update HTML lang attribute
+  document.documentElement.lang = lang;
 
-    // Update current language display
-    currentLangElements.forEach(el => { el.textContent = lang.toUpperCase(); });
+  // Update current language display
+  currentLangElements.forEach((el) => {
+    el.textContent = lang.toUpperCase();
+  });
 
-    // Active state in menu
-    languageLinks.forEach(l => l.classList.toggle('active', l.getAttribute('data-lang') === lang));
+  // Active state in menu
+  languageLinks.forEach((l) =>
+    l.classList.toggle("active", l.getAttribute("data-lang") === lang)
+  );
 
-    // Save preference
-    try { localStorage.setItem('site_lang', lang); } catch(e) {}
+  // Save preference
+  try {
+    localStorage.setItem("site_lang", lang);
+  } catch (e) {}
 }
 
 // Language selection click
-languageLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const selectedLang = link.getAttribute('data-lang');
-        applyLanguage(selectedLang);
-        showNotification(selectedLang === 'bg' ? 'Езикът е променен на български' : 'Language changed to English', 'success');
-        languageDropdowns.forEach(dd => dd.classList.remove('active'));
-    });
+languageLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const selectedLang = link.getAttribute("data-lang");
+    applyLanguage(selectedLang);
+    showNotification(
+      selectedLang === "bg"
+        ? "Езикът е променен на български"
+        : "Language changed to English",
+      "success"
+    );
+    languageDropdowns.forEach((dd) => dd.classList.remove("active"));
+  });
 });
 
 // Init language from storage or default BG
-const savedLang = (()=>{
-    try { return localStorage.getItem('site_lang') || 'bg'; }
-    catch(e){ return 'bg'; }
+const savedLang = (() => {
+  try {
+    return localStorage.getItem("site_lang") || "bg";
+  } catch (e) {
+    return "bg";
+  }
 })();
 applyLanguage(savedLang);
 
-console.log('Luxury Transfer website loaded successfully!');
+console.log("Luxury Transfer website loaded successfully!");

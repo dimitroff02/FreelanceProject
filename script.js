@@ -315,6 +315,25 @@ const translations = {
     "service-intercity-footer": "Междуградски трансфери",
     "service-international-footer": "Международни трансфери",
     "footer-copyright": "© 2025 Luxury Transfer. Всички права запазени.",
+    // Contact page specific
+    "contact-hero-title": "Свържете се с нас",
+    "contact-hero-subtitle":
+      "Готови сме да отговорим на всички ваши въпроси и да организираме перфектния трансфер за вас",
+    "contact-info-title": "Нашите контакти",
+    "contact-form-title": "Изпратете запитване",
+    "contact-phone": "Телефон",
+    "contact-email": "Имейл",
+    "contact-address": "Адрес",
+    "contact-hours": "Работно време",
+    "form-note":
+      "За най-бърз отговор използвайте WhatsApp или Viber — попълнете име, телефон и съобщение.",
+    "label-name": "Име *",
+    "label-phone": "Телефон",
+    "label-subject": "Тема",
+    "label-message": "Съобщение *",
+    "message-placeholder": "Опишете вашето запитване или проблем...",
+    "btn-whatsapp": "Изпрати по WhatsApp",
+    "btn-viber": "Изпрати по Viber",
   },
   en: {
     // Navigation
@@ -382,6 +401,25 @@ const translations = {
     "service-intercity-footer": "Intercity Transfers",
     "service-international-footer": "International Transfers",
     "footer-copyright": "© 2025 Luxury Transfer. All rights reserved.",
+    // Contact page specific
+    "contact-hero-title": "Get in touch",
+    "contact-hero-subtitle":
+      "We're ready to answer your questions and arrange the perfect transfer for you",
+    "contact-info-title": "Our contacts",
+    "contact-form-title": "Send an inquiry",
+    "contact-phone": "Phone",
+    "contact-email": "Email",
+    "contact-address": "Address",
+    "contact-hours": "Working hours",
+    "form-note":
+      "For fastest response use WhatsApp or Viber — fill name, phone and message.",
+    "label-name": "Name *",
+    "label-phone": "Phone",
+    "label-subject": "Subject",
+    "label-message": "Message *",
+    "message-placeholder": "Describe your inquiry or issue...",
+    "btn-whatsapp": "Send via WhatsApp",
+    "btn-viber": "Send via Viber",
   },
 };
 
@@ -416,6 +454,17 @@ function applyLanguage(lang) {
     const key = element.getAttribute("data-translate");
     if (translations[lang] && translations[lang][key]) {
       element.textContent = translations[lang][key];
+    }
+  });
+
+  // translate placeholders (for inputs/textareas)
+  const placeholders = document.querySelectorAll(
+    "[data-translate-placeholder]"
+  );
+  placeholders.forEach((el) => {
+    const key = el.getAttribute("data-translate-placeholder");
+    if (translations[lang] && translations[lang][key]) {
+      el.setAttribute("placeholder", translations[lang][key]);
     }
   });
 

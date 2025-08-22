@@ -604,9 +604,18 @@ body {
 /* Contact Styles */
 .contact-hero {
   padding: 8rem 0 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Layer a semi-opaque gradient over an image for contrast */
+  background-image: linear-gradient(
+      rgba(102, 126, 234, 0.85),
+      rgba(118, 75, 162, 0.85)
+    ),
+    url("car1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
+  position: relative;
 }
 
 .contact-hero h1 {
@@ -616,7 +625,7 @@ body {
 
 .contact-hero p {
   font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .contact-section {

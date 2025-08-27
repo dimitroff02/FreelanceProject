@@ -394,6 +394,7 @@ const translations = {
     "drink-step3-title": "Безопасно вкъщи",
     "drink-step3-desc":
       "Ще ви закараме директно до вкъщи или желан адрес — безопасно и дискретно.",
+    "drink-sofia-note": "Услугата Drink&Drive е достъпна само за град София.",
   },
   en: {
     // Navigation
@@ -526,6 +527,7 @@ const translations = {
     "drink-step3-title": "Home safely",
     "drink-step3-desc":
       "We'll drive you to your home or chosen address — safely and discreetly.",
+    "drink-sofia-note": "The Drink&Drive service is available only in Sofia.",
   },
 };
 

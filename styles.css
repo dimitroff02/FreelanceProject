@@ -84,6 +84,16 @@ body {
   align-items: center;
   gap: 0.6rem;
 }
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+.logo a:hover {
+  text-decoration: none;
+}
 
 .site-logo {
   width: 40px;

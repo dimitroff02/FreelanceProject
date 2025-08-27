@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="drink-title">Drink & Drive</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="icon" href="icon.png" type="image/png" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <img src="icon.png" alt="Luxury Transfer logo" class="site-logo" />
+            <h2 data-translate="nav-brand">Luxury Transfer</h2>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html" data-translate="nav-home">Начало</a></li>
+            <li>
+              <a href="index.html#about" data-translate="nav-about">За нас</a>
+            </li>
+            <li>
+              <a href="index.html#services" data-translate="nav-services"
+                >Услуги</a
+              >
+            </li>
+            <li>
+              <a href="index.html#prices" data-translate="nav-prices"
+                >Запитване за цена</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" data-translate="nav-contact">Контакти</a>
+            </li>
+            <li>
+              <a href="drink.html" class="active" data-translate="nav-drink"
+                >Drink&Drive</a
+              >
+            </li>
+            <li class="language-selector">
+              <div class="language-dropdown">
+                <button class="language-btn">
+                  <i class="fas fa-globe"></i>
+                  <span class="current-lang">BG</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="language-menu">
+                  <li>
+                    <a href="#" data-lang="bg" class="active">Български</a>
+                  </li>
+                  <li><a href="#" data-lang="en">English</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container" style="padding: 6rem 20px 4rem">
+      <section class="drink-hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1 data-translate="drink-hero-title">Не карайте пили</h1>
+            <p class="lead" data-translate="drink-hero-sub">
+              Ако сте пил(а), не рискувайте — обадете ни се и ние ще ви закараме
+              безопасно.
+            </p>
+            <div class="hero-buttons">
+              <a
+                href="tel:+359884497938"
+                class="btn btn-primary"
+                data-translate="btn-call"
+              >
+                <i class="fas fa-phone"></i>
+                Обадете се
+              </a>
+            </div>
+            <div class="hero-features">
+              <div class="feature-badge">
+                <i class="fas fa-clock"></i>
+                <span data-translate="drink-feature-1">24/7</span>
+              </div>
+              <div class="feature-badge">
+                <i class="fas fa-user-shield"></i>
+                <span data-translate="drink-feature-2"
+                  >Професионални шофьори</span
+                >
+              </div>
+              <div class="feature-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span data-translate="drink-feature-3"
+                  >Безопасен транспорт</span
+                >
+              </div>
+            </div>
+
+            <p class="muted-note" data-translate="drink-note">
+              Ние сме тук за да ви върнем безопасно у дома.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Luxury Transfer</h3>
+            <p data-translate="footer-about">
+              Вашият надежден партньор за луксозни трансфери от летище София и
+              Пловдив.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4 data-translate="footer-contacts">Контакти</h4>
+            <p><i class="fas fa-phone"></i> +359 88 4497938</p>
+            <p><i class="fas fa-envelope"></i> cotsev0@abv.bg</p>
+            <p><i class="fas fa-map-marker-alt"></i> София, България</p>
+          </div>
+          <div class="footer-section">
+            <h4 data-translate="footer-services">Услуги</h4>
+            <ul>
+              <li data-translate="service-sofia-footer">
+                Трансфер от летище София
+              </li>
+              <li data-translate="service-plovdiv-footer">
+                Трансфер от летище Пловдив
+              </li>
+              <li data-translate="service-intercity-footer">
+                Междуградски трансфери
+              </li>
+              <li data-translate="service-international-footer">
+                Международни трансфери
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p data-translate="footer-copyright">
+            &copy; 2025 Luxury Transfer. Всички права запазени.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta name="google" content="notranslate" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Контакти - Luxury Transfer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="icon" href="icon.png" type="image/png" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <img src="icon.png" alt="Luxury Transfer logo" class="site-logo" />
+            <h2 data-translate="nav-brand">Luxury Transfer</h2>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html" data-translate="nav-home">Начало</a></li>
+            <li>
+              <a href="index.html#about" data-translate="nav-about">За нас</a>
+            </li>
+            <div class="language-dropdown mobile-language-dropdown">
+              <button class="language-btn">
+                <i class="fas fa-globe"></i>
+                <span class="current-lang">BG</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="language-menu">
+                <li>
+                  <a href="#" data-lang="bg" class="active">Български</a>
+                </li>
+                <li><a href="#" data-lang="en">English</a></li>
+              </ul>
+            </div>
+            <li>
+              <a href="index.html#services" data-translate="nav-services"
+                >Услуги</a
+              >
+            </li>
+            <li>
+              <a href="index.html#prices" data-translate="nav-prices"
+                >Запитване за цена</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="active" data-translate="nav-contact"
+                >Контакти</a
+              >
+            </li>
+            <li>
+              <a href="drink.html" data-translate="nav-drink">Drink&Drive</a>
+            </li>
+            <li class="language-selector">
+              <div class="language-flags desktop-flags">
+                <a href="#" class="flag-btn" data-lang="bg" title="Български">
+                  <img
+                    src="https://flagcdn.com/w40/bg.png"
+                    alt="България"
+                    style="
+                      width: 32px;
+                      height: 22px;
+                      border-radius: 4px;
+                      box-shadow: 0 2px 8px #0002;
+                      vertical-align: middle;
+                    "
+                  />
+                </a>
+                <a href="#" class="flag-btn" data-lang="en" title="English">
+                  <img
+                    src="https://flagcdn.com/w40/gb.png"
+                    alt="Англия"
+                    style="
+                      width: 32px;
+                      height: 22px;
+                      border-radius: 4px;
+                      box-shadow: 0 2px 8px #0002;
+                      vertical-align: middle;
+                    "
+                  />
+                </a>
+              </div>
+            </li>
+          </ul>
+          <!-- Няма mobile-language-selector -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <div class="container">
+        <h1 data-translate="contact-hero-title">Свържете се с нас</h1>
+        <p data-translate="contact-hero-subtitle">
+          Готови сме да отговорим на всички ваши въпроси и да организираме
+          перфектния трансфер за вас
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h2 data-translate="contact-info-title">Нашите контакти</h2>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3 data-translate="contact-phone">Телефон</h3>
+                <p><a href="tel:+359884497938">+359 88 4497938</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3 data-translate="contact-email">Имейл</h3>
+                <p><a href="mailto:cotsev0@abv.bg">cotsev0@abv.bg</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3 data-translate="contact-address">Адрес</h3>
+                <p>ул. "Васил Левски" 15</p>
+                <p>1000 София, България</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-details">
+                <h3 data-translate="contact-hours">Работно време</h3>
+                <p data-translate="hours-available">24/7 на разположение</p>
+                <p data-translate="hours-reservations">
+                  Резервации онлайн - 24/7
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-container">
+            <h2 data-translate="contact-form-title">Изпратете запитване</h2>
+            <form id="contactForm" class="contact-form">
+              <div class="form-note">
+                <p data-translate="form-note">
+                  За най-бърз отговор използвайте WhatsApp или Viber — попълнете
+                  име, телефон и съобщение и натиснете съответния бутон.
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="name" data-translate="label-name">Име *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <!-- Email премахнат: предпочитаме контакт чрез телефон/чат -->
+              <div class="form-group">
+                <label for="phone" data-translate="label-phone"
+                  >Телефон *</label
+                >
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="subject" data-translate="label-subject">Тема</label>
+                <select id="subject" name="subject">
+                  <option value="" data-translate="subject-placeholder">
+                    Изберете тема
+                  </option>
+                  <option
+                    value="reservation"
+                    data-translate="subject-reservation"
+                  >
+                    Резервация
+                  </option>
+                  <option value="pricing" data-translate="subject-pricing">
+                    Цени
+                  </option>
+                  <option value="service" data-translate="subject-service">
+                    Услуги
+                  </option>
+                  <option value="complaint" data-translate="subject-complaint">
+                    Жалба
+                  </option>
+                  <option value="other" data-translate="subject-other">
+                    Друго
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message" data-translate="label-message"
+                  >Съобщение *</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  data-translate-placeholder="message-placeholder"
+                  placeholder="Опишете вашето запитване или проблем..."
+                ></textarea>
+              </div>
+              <div class="form-buttons">
+                <button
+                  type="button"
+                  class="btn btn-whatsapp"
+                  data-platform="whatsapp"
+                  data-translate="btn-whatsapp"
+                >
+                  <i class="fab fa-whatsapp"></i> Изпрати по WhatsApp
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-viber"
+                  data-platform="viber"
+                  data-translate="btn-viber"
+                >
+                  <i class="fab fa-viber"></i> Изпрати по Viber
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 data-translate="faq-title">Често задавани въпроси</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-translate="faq-q1">Как мога да резервирам трансфер?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p data-translate="faq-a1">
+                Можете да резервирате трансфер чрез телефон, имейл или чрез
+                нашата контактна форма. Препоръчваме резервацията да се направи
+                поне 24 часа преди пътуването.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-translate="faq-q2">
+                Колко време предварително трябва да резервирам?
+              </h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p data-translate="faq-a2">
+                За най-добро обслужване препоръчваме резервация поне 24 часа
+                предварително. За спешни случаи обаче можем да организираме
+                трансфер и в рамките на няколко часа.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-translate="faq-q3">
+                Какво включва цената на трансфера?
+              </h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p data-translate="faq-a3">
+                Цената включва трансфера от точка А до точка Б, среща в летището
+                и помощ с багажа. Допълнителни услуги като закуски и зареждане
+                са включени в премиум пакетите.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-translate="faq-q4">Работите ли 24/7?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p data-translate="faq-a4">
+                Да, нашите услуги са на разположение 24 часа на ден, 7 дни в
+                седмицата, включително празници и почивни дни.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Luxury Transfer</h3>
+            <p data-translate="footer-about">
+              Вашият надежден партньор за луксозни трансфери от летище София и
+              Пловдив.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4 data-translate="footer-contacts">Контакти</h4>
+            <p><i class="fas fa-phone"></i> +359 88 4497938</p>
+            <p><i class="fas fa-envelope"></i> cotsev0@abv.bg</p>
+            <p><i class="fas fa-map-marker-alt"></i> София, България</p>
+          </div>
+          <div class="footer-section">
+            <h4 data-translate="footer-services">Услуги</h4>
+            <ul>
+              <li data-translate="service-sofia-footer">
+                Трансфер от летище София
+              </li>
+              <li data-translate="service-plovdiv-footer">
+                Трансфер от летище Пловдив
+              </li>
+              <li data-translate="service-intercity-footer">
+                Междуградски трансфери
+              </li>
+              <li data-translate="service-international-footer">
+                Международни трансфери
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p data-translate="footer-copyright">
+            &copy; 2025 Luxury Transfer. Всички права запазени.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

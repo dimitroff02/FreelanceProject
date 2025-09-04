@@ -95,6 +95,12 @@ body {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .hero-image .car-slide img {
+    content: url('heroimage.png');
+  }
+}
+
 .site-logo {
   width: 40px;
   height: 40px;
@@ -1302,7 +1308,7 @@ body {
   }
 
   .hero::before {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
   }
 
   .hero-content {
@@ -1316,12 +1322,12 @@ body {
   .hero-content h1 {
     font-size: 2.5rem;
     margin-top: 100px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
     font-weight: 800;
   }
 
   .hero-content p {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     font-weight: 500;
   }
 
@@ -1425,13 +1431,13 @@ body {
   .hero-content h1 {
     font-size: 2rem;
     margin-top: 90px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
     font-weight: 800;
   }
 
   .hero-content p {
     font-size: 1rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     font-weight: 500;
   }
 

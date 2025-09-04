@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta name="google" content="notranslate" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Luxury Transfer - Луксозни трансфери от летище София и Пловдив
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="icon" href="icon.png" type="image/png" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <a href="index.html" class="logo-link">
+              <img
+                src="icon.png"
+                alt="Luxury Transfer logo"
+                class="site-logo"
+              />
+              <h2 data-translate="nav-brand">Luxury Transfer</h2>
+            </a>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#home" data-translate="nav-home">Начало</a></li>
+            <li><a href="#about" data-translate="nav-about">За нас</a></li>
+            <li>
+              <a href="#services" data-translate="nav-services">Услуги</a>
+            </li>
+            <li>
+              <a href="#prices" data-translate="nav-prices"
+                >Запитване за цена</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" data-translate="nav-contact">Контакти</a>
+            </li>
+            <li>
+              <a href="drink.html" data-translate="nav-drink">Drink&Drive</a>
+            </li>
+            <li class="language-selector">
+              <div class="language-flags desktop-flags">
+                <a href="#" class="flag-btn" data-lang="bg" title="Български">
+                  <img
+                    src="https://flagcdn.com/w40/bg.png"
+                    alt="България"
+                    style="
+                      width: 32px;
+                      height: 22px;
+                      border-radius: 4px;
+                      box-shadow: 0 2px 8px #0002;
+                      vertical-align: middle;
+                    "
+                  />
+                </a>
+                <a href="#" class="flag-btn" data-lang="en" title="English">
+                  <img
+                    src="https://flagcdn.com/w40/gb.png"
+                    alt="Англия"
+                    style="
+                      width: 32px;
+                      height: 22px;
+                      border-radius: 4px;
+                      box-shadow: 0 2px 8px #0002;
+                      vertical-align: middle;
+                    "
+                  />
+                </a>
+              </div>
+              <div class="language-dropdown mobile-language-dropdown">
+                <button class="language-btn">
+                  <i class="fas fa-globe"></i>
+                  <span class="current-lang">BG</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="language-menu">
+                  <li>
+                    <a href="#" data-lang="bg" class="active">Български</a>
+                  </li>
+                  <li><a href="#" data-lang="en">English</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <!-- Премахнат е дублиращият се mobile-language-selector -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 data-translate="hero-title">Луксозни трансфери от летище</h1>
+        <p data-translate="hero-subtitle">
+          Пътувайте в стил и комфорт с нашите нови премиум автомобили
+        </p>
+        <p data-translate="hero-description">
+          Превозваме от летище София и летище Пловдив до всяка точка в България
+          + близките страни(Румъния, Гърция, Турция)
+        </p>
+        <div class="hero-buttons">
+          <a
+            href="#prices"
+            class="btn btn-primary"
+            data-translate="btn-price-inquiry"
+            >Запитване за цена</a
+          >
+          <a
+            href="contact.html"
+            class="btn btn-secondary"
+            data-translate="btn-reserve"
+            >Резервирай</a
+          >
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="car-slider">
+          <div class="car-slide active">
+            <img src="car1.jpg" alt="Луксозен автомобил" />
+          </div>
+          <div class="car-slide">
+            <img src="car2.jpg" alt="Луксозен автомобил" />
+          </div>
+          <div class="car-slide">
+            <img src="car3.jpg" alt="Луксозен автомобил" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 data-translate="about-title">За нас</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3 data-translate="about-subtitle">
+              Вашият надежден партньор за луксозни трансфери
+            </h3>
+            <p data-translate="about-description">
+              Специализираме се в предоставянето на премиум трансфер услуги от
+              летище София и летище Пловдив. Нашата флотилия включва най-новите
+              луксозни автомобили, за да гарантираме максимален комфорт и стил
+              при всяко пътуване.
+            </p>
+            <div class="features">
+              <div class="feature">
+                <i class="fas fa-car"></i>
+                <h4 data-translate="feature-cars-title">Луксозни автомобили</h4>
+                <p data-translate="feature-cars-desc">от 2024 година</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-clock"></i>
+                <h4 data-translate="feature-24h-title">24/7 на разположение</h4>
+                <p data-translate="feature-24h-desc">
+                  Готови сме да ви обслужим по всяко време
+                </p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h4 data-translate="feature-safety-title">Безопасност</h4>
+                <p data-translate="feature-safety-desc">
+                  Лицензирани шофьори с богат опит
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="car2.jpg" alt="Луксозен автомобил" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2 data-translate="services-title">Нашите услуги</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-plane"></i>
+            </div>
+            <h2 data-translate="service-sofia-title">
+              Трансфер от летище София
+            </h2>
+            <p data-translate="service-sofia-desc">
+              Бърз и комфортен трансфер от летище София до всяка точка в града
+              или страната
+            </p>
+            <ul>
+              <li data-translate="service-feature-luggage">Помощ с багажа</li>
+              <li data-translate="service-feature-comfort">
+                Максимален комфорт
+              </li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-plane-departure"></i>
+            </div>
+            <h2 data-translate="service-plovdiv-title">
+              Трансфер от летище Пловдив
+            </h2>
+            <p data-translate="service-plovdiv-desc">
+              Луксозен трансфер от летище Пловдив с професионални шофьори
+            </p>
+            <ul>
+              <li data-translate="service-feature-luggage">Помощ с багажа</li>
+              <li data-translate="service-feature-comfort">
+                Максимален комфорт
+              </li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-route"></i>
+            </div>
+            <h2
+              data-translate="service-intercity-title"
+              style="
+                font-size: 2.4rem;
+                line-height: 1.1;
+                word-break: break-word;
+                color: #1a1a1a;
+                max-width: 95%;
+                margin: 0 auto 1rem auto;
+              "
+            >
+              Междуградски трансфери
+            </h2>
+            <p data-translate="service-intercity-desc">
+              Комфортни пътувания между градовете в България и близките
+              страни(Румъния, Гърция, Турция)
+            </p>
+            <ul>
+              <li data-translate="service-feature-distance">
+                Дълги разстояния
+              </li>
+              <li data-translate="service-feature-rest">Спиране за почивка</li>
+              <li data-translate="service-feature-comfort">
+                Максимален комфорт
+              </li>
+            </ul>
+          </div>
+          <!-- Drink & Drive service card -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-glass-cheers"></i>
+            </div>
+            <h2 data-translate="service-drink-title">Drink&Drive</h2>
+            <p data-translate="service-drink-desc">
+              Не карайте пили — обадете ни се и ние ще ви върнем безопасно у
+              дома.
+            </p>
+            <ul>
+              <li data-translate="drink-feature-1">24/7</li>
+              <li data-translate="drink-feature-2">Професионални шофьори</li>
+              <li data-translate="drink-feature-3">Безопасен транспорт</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Price Inquiry Section -->
+    <section id="prices" class="price-inquiry">
+      <div class="container">
+        <h2 data-translate="prices-title">Запитване за цена</h2>
+        <div class="inquiry-content">
+          <div class="inquiry-text">
+            <h3 data-translate="prices-subtitle">
+              Получете персонализирана оферта
+            </h3>
+            <p data-translate="prices-description">
+              Всяко пътуване е уникално и заслужава перфектна цена. Свържете се
+              с нас за персонализирана оферта според вашите нужди.
+            </p>
+            <div class="inquiry-features">
+              <div class="inquiry-feature">
+                <i class="fas fa-calculator"></i>
+                <h4 data-translate="feature-calc-title">Точно изчисление</h4>
+                <p data-translate="feature-calc-desc">
+                  Цена според разстоянието и броя пътници
+                </p>
+              </div>
+              <div class="inquiry-feature">
+                <i class="fas fa-clock"></i>
+                <h4 data-translate="feature-fast-title">Бърз отговор</h4>
+                <p data-translate="feature-fast-desc">
+                  Получете оферта в рамките на 15 минути
+                </p>
+              </div>
+              <div class="inquiry-feature">
+                <i class="fas fa-percent"></i>
+                <h4 data-translate="feature-discount-title">
+                  Специални отстъпки
+                </h4>
+                <p data-translate="feature-discount-desc">
+                  За редовни клиенти и групови резервации
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="inquiry-action">
+            <div class="inquiry-card">
+              <div class="inquiry-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <h3 data-translate="call-title">Обадете се сега</h3>
+              <p data-translate="call-description">
+                Получете незабавна оферта за вашия трансфер
+              </p>
+
+              <!-- Заменено: бутон -> tel: линк -->
+              <a
+                href="tel:+359884497938"
+                id="callButton"
+                class="btn btn-primary"
+              >
+                <i class="fas fa-phone"></i>
+                <span data-translate="btn-call">Обадете се</span>
+              </a>
+
+              <p class="inquiry-note" data-translate="call-note">
+                Безплатна консултация и оферта
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Luxury Transfer</h3>
+            <p data-translate="footer-about">
+              Вашият надежден партньор за луксозни трансфери от летище София и
+              Пловдив.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4 data-translate="footer-contacts">Контакти</h4>
+            <p><i class="fas fa-phone"></i> +359 88 4497938</p>
+            <p><i class="fas fa-envelope"></i> cotsev0@abv.bg</p>
+            <p><i class="fas fa-map-marker-alt"></i> София, България</p>
+          </div>
+          <div class="footer-section">
+            <h4 data-translate="footer-services">Услуги</h4>
+            <ul>
+              <li data-translate="service-sofia-footer">
+                Трансфер от летище София
+              </li>
+              <li data-translate="service-plovdiv-footer">
+                Трансфер от летище Пловдив
+              </li>
+              <li data-translate="service-intercity-footer">
+                Междуградски трансфери
+              </li>
+              <li data-translate="service-international-footer">
+                Международни трансфери
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p data-translate="footer-copyright">
+            &copy; 2025 Luxury Transfer. Всички права запазени.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

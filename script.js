@@ -270,7 +270,7 @@ const translations = {
     "nav-services": "Услуги",
     "nav-prices": "Запитване за цена",
     "nav-contact": "Контакти",
-    "nav-brand": "Luxury Transfer",
+    "nav-brand": "Luxury Transfers",
     // Hero Section
     "hero-title": "Луксозни трансфери от летище",
     "hero-subtitle":
@@ -332,7 +332,7 @@ const translations = {
     "service-plovdiv-footer": "Трансфер от летище Пловдив",
     "service-intercity-footer": "Междуградски трансфери",
     "service-international-footer": "Международни трансфери",
-    "footer-copyright": "© 2025 Luxury Transfer. Всички права запазени.",
+    "footer-copyright": "© 2025 Luxury Transfers. Всички права запазени.",
     // Contact page specific
     "contact-hero-title": "Свържете се с нас",
     "contact-hero-subtitle":
@@ -403,7 +403,7 @@ const translations = {
     "nav-services": "Services",
     "nav-prices": "Price Inquiry",
     "nav-contact": "Contact",
-    "nav-brand": "Luxury Transfer",
+    "nav-brand": "Luxury Transfers",
     // Hero Section
     "hero-title": "Luxury Airport Transfers",
     "hero-subtitle":
@@ -465,7 +465,7 @@ const translations = {
     "service-plovdiv-footer": "Plovdiv Airport Transfer",
     "service-intercity-footer": "Intercity Transfers",
     "service-international-footer": "International Transfers",
-    "footer-copyright": "© 2025 Luxury Transfer. All rights reserved.",
+    "footer-copyright": "© 2025 Luxury Transfers. All rights reserved.",
     // Contact page specific
     "contact-hero-title": "Get in touch",
     "contact-hero-subtitle":
@@ -604,8 +604,8 @@ function applyLanguage(lang) {
   // Update page title
   document.title =
     lang === "bg"
-      ? "Luxury Transfer - Луксозни трансфери от летище София и Пловдив"
-      : "Luxury Transfer - Luxury Transfers from Sofia and Plovdiv Airports";
+      ? "Luxury Transfers - Луксозни трансфери от летище София и Пловдив"
+      : "Luxury Transfers - Luxury Transfers from Sofia and Plovdiv Airports";
 
   // Update HTML lang attribute
   document.documentElement.lang = lang;

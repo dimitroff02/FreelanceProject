@@ -97,7 +97,7 @@ body {
 
 @media (max-width: 768px) {
   .hero-image .car-slide img {
-    content: url('heroimage.png');
+    content: url("heroimage.png");
   }
 }
 
@@ -262,7 +262,7 @@ body {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #0b0e14; /* по-„premium“ тъмен бекграунд */
 }
 
 .hero::before {
@@ -272,36 +272,65 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  /* двоен градиент за по-добър контраст към текста и снимката */
+  background: radial-gradient(
+      120% 80% at 50% 100%,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.48) 50%,
+      rgba(0, 0, 0, 0.18) 100%
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.12) 40%);
   z-index: 1;
 }
 
 .hero-content {
   flex: 1;
-  padding: 0 4rem;
+  padding: 1.25rem 3rem;
   color: white;
   z-index: 2;
   position: relative;
+  max-width: 640px;
+  /* „glass“ карта за четимост върху снимката */
+  background: rgba(10, 12, 18, 0.35);
+  backdrop-filter: blur(6px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 3rem; /* по-компактно от 3.5rem */
+  font-weight: 800;
   margin-bottom: 1rem;
+  line-height: 1.12;
+  letter-spacing: -0.2px;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
   animation: fadeInUp 1s ease;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-bottom: 1.1rem;
+  opacity: 0.95;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   animation: fadeInUp 1s ease 0.2s both;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
   animation: fadeInUp 1s ease 0.4s both;
+}
+
+/* по-удобни за палец бутони само в хиро */
+.hero .btn {
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -317,14 +346,16 @@ body {
 }
 
 .btn-primary {
-  background: #007bff;
+  background: linear-gradient(180deg, #1d6eff, #1552d6);
   color: white;
+  box-shadow: 0 6px 16px rgba(29, 110, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary:hover {
-  background: #0056b3;
+  background: #1552d6;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 10px 20px rgba(29, 110, 255, 0.4);
 }
 
 .btn-secondary {
@@ -342,7 +373,7 @@ body {
 .hero-image {
   flex: 1;
   position: relative;
-  z-index: 2;
+  z-index: 2; /* над градиента */
 }
 
 .car-slider {
@@ -1308,6 +1339,7 @@ body {
   }
 
   .hero::before {
+    /* по-тъмен на мобилно за максимална четимост */
     background: rgba(0, 0, 0, 0.75);
   }
 
